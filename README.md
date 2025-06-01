@@ -1,5 +1,8 @@
-# Ant Dashboard UI 
-  <img src="https://img.icons8.com/color/96/ant-design.png](https://github.com/user-attachments/assets/b26beba5-3004-4b27-afc0-ddb3c069d4f9" alt="Ant Design Logo" />
+<div style="display: flex; align-items: center; gap: 10px;">
+  <img align="center" src="https://github.com/user-attachments/assets/b26beba5-3004-4b27-afc0-ddb3c069d4f9" alt="Ant Design Logo"  height=150 width=150 />
+  <h1 style="margin: 0;">Ant Dashboard UI</h1>
+</div>
+
 
 A mini React dashboard project using **Ant Design**, focused on reusable components, React Hooks, and accessibility.
 
@@ -36,7 +39,7 @@ src/
 - Git
 
 ### Install
-git clone https://github.com/YOUR_USERNAME/ant-dashboard-ui.git
+git clone https://github.com/seif1125/ant-dashboard-ui/ant-dashboard-ui.git
 
 cd ant-dashboard-ui
 
