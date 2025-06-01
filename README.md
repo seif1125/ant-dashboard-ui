@@ -13,18 +13,18 @@ A mini React dashboard project using **Ant Design**, focused on reusable compone
 
 ## 📁 Folder Structure
 src/
-├── assets/
-├── components/
-│ ├── Layout/
-│ ├── LoginForm.jsx
-│ └── StatsCard.jsx
-├── context/
-│ └── ThemeContext.jsx
-├── pages/
-│ ├── Dashboard.jsx
-│ └── Login.jsx
-├── App.jsx
-└── index.js
+-├── assets/
+-├── components/
+-│ ├── Layout/
+-│ ├── LoginForm.jsx
+-│ └── StatsCard.jsx
+-├── context/
+-│ └── ThemeContext.jsx
+-├── pages/
+-│ ├── Dashboard.jsx
+-│ └── Login.jsx
+-├── App.jsx
+-└── index.js
 
 
 ## 🧑‍💻 Getting Started
