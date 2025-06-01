@@ -1,4 +1,4 @@
-# Ant Dashboard UI
+# Ant Dashboard UI 
 
 A mini React dashboard project using **Ant Design**, focused on reusable components, React Hooks, and accessibility.
 
@@ -36,9 +36,13 @@ src/
 
 ### Install
 git clone https://github.com/YOUR_USERNAME/ant-dashboard-ui.git
+
 cd ant-dashboard-ui
+
 npm install
+
 npm start
+
 App will run on: http://localhost:3000
 
 ### 🛠 Tech Stack
