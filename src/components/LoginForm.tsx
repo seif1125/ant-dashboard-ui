@@ -1,13 +1,14 @@
 // src/components/LoginForm.jsx
-import React from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Alert, Button, Checkbox, Form, Input } from 'antd';
 import {useAuth} from '../context/AuthContext'; // ✅ Correct
-
+import {theme as antdTheme} from 'antd'; // Import the theme module
 const LoginForm = () => {
-  const {login,logout,clearError,showError,error} = useAuth();
+   const { token } = antdTheme.useToken();
+  const {login,clearError,showError,error} = useAuth();
   const onFinish = (values) => {
-    login(values.username, values.password);  
+    clearError()
+    login(values.username, values.password);                                                                                                        
   };
 
   return (
@@ -22,10 +23,11 @@ const LoginForm = () => {
         name="username"
         rules={[{ required: true, message: 'Please input your Email!' }]}
       >
-        <Input prefix={<UserOutlined />} placeholder="Email" />
+        <Input onChange={clearError} prefix={<UserOutlined />} placeholder="Email" />
       </Form.Item>
 
       <Form.Item
+      style={{backkgroundColor:token.colorBgBase}} 
         name="password"
         rules={[{ required: true, message: 'Please input your Password!' }]}
       >
@@ -39,14 +41,14 @@ const LoginForm = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" block>
+        <Button  type="primary" htmlType="submit" block>
           Log in
         </Button>
       </Form.Item>
        {error && (
       <Alert
         message="Login Error"
-        description={showError}
+        description={error}
         type="error"
         showIcon
         closable

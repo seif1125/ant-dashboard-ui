@@ -11,7 +11,7 @@ const AuthContext = createContext();
 
     const login = (username,password) => {
 
-        if (username==='seif' || password==='123456') {
+        if (username==='seif' && password==='123456') {
         setUser({username,password});
         setIsAuthenticated(true);}
         else{
