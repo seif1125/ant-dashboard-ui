@@ -5,7 +5,7 @@ import {useAuth} from '../context/AuthContext'; // ✅ Correct
 import {theme as antdTheme} from 'antd'; // Import the theme module
 const LoginForm = () => {
    const { token } = antdTheme.useToken();
-  const {login,clearError,showError,error} = useAuth();
+  const {login,clearError,error} = useAuth();
   const onFinish = (values) => {
     clearError()
     login(values.username, values.password);                                                                                                        

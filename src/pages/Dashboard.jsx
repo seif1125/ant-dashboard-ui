@@ -1,25 +1,17 @@
-import React, { useState } from 'react';
-import { Layout, Menu, Switch, theme as antdTheme } from 'antd';
+import { useState } from 'react';
+import { Layout, Menu,  theme as antdTheme } from 'antd';
 import {
   DashboardOutlined,
   LogoutOutlined,
 } from '@ant-design/icons';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
+import Charts from '../components/Charts';
 
-const { Header, Sider, Content } = Layout;
 
-const SwitchTheme = () => {
-  const { theme, toggleTheme } = useTheme();
-  return (
-    <Switch
-      checked={theme === 'dark'}
-      onChange={toggleTheme}
-      checkedChildren="🌙"
-      unCheckedChildren="☀️"
-    />
-  );
-};
+const { Sider, Content } = Layout;
+
+
 
 const Dashboard = () => {
   const { logout, getUser } = useAuth();
@@ -59,7 +51,7 @@ const Dashboard = () => {
             marginBottom: '20px',
           }}
         >
-          <img src="./media/logo.png" alt="logo" width={50} height={37.8} />
+         
           {!collapsed && <span style={{ marginLeft: '8px' }}>AntDashboard</span>}
         </div>
       
@@ -85,27 +77,7 @@ const Dashboard = () => {
       </Sider>
 
       <Layout>
-        <Header
-          style={{
-            background: token.colorBgContainer,
-            color: token.colorText,
-            padding: '0 16px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          {collapsed && (
-            <img src="./media/logo.png" alt="logo" width={50} height={37.8} />
-          )}
-          <h2>
-            <span style={{ color: 'red' }}>
-              Welcome {getUser().username}
-            </span>{' '}
-            to AntDashboard
-          </h2>
-          <SwitchTheme />
-        </Header>
+        
 
         <Content
           style={{
@@ -116,7 +88,7 @@ const Dashboard = () => {
           }}
         >
           {selectedMenuKey === '1' && (
-            <p>📊 This is the Overview section.</p>
+            <Charts />
           )}
           {selectedMenuKey === '2' && (
             <p>📈 This is the Stats section with charts.</p>

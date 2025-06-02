@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
@@ -6,6 +6,7 @@ import { ConfigProvider, theme as antdTheme } from 'antd';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import { useAuth } from './context/AuthContext';
+import AppHeader from './components/AppHeader';
 
 // ✅ Route protection
 const PrivateRoute = ({ children }) => {
@@ -48,6 +49,7 @@ const ThemedAntApp = () => {
         },
       }}
     >
+      <AppHeader collapsed={true}  />
       <AppRoutes />
     </ConfigProvider>
   );
