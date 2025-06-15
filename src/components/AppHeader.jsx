@@ -2,17 +2,19 @@
 import { Layout, theme as antdTheme } from 'antd';
 import { useAuth } from '../context/AuthContext';
 import SwitchTheme from './SwitchTheme';
+import { useNavigate } from 'react-router-dom';
 
 const { Header } = Layout;
 
 const AppHeader = ({ collapsed = true }) => {
+  const navigate = useNavigate();
   const { getUser } = useAuth();
   const { token } = antdTheme.useToken();
 
   return (
     <Header
       style={{
-        background: token.colorBgContainer,
+        backgroundColor: token.colorBgContainer,
         color: token.colorText,
         padding: '0 16px',
         display: 'flex',
@@ -21,7 +23,7 @@ const AppHeader = ({ collapsed = true }) => {
       }}
     >
       {collapsed && (
-        <img src="./media/logo.png" alt="logo" width={50} style={{ height: 'auto' }} />
+        <img onClick={() => navigate('/')} src="./media/logo.png" alt="logo" width={50} style={{ height: 'auto',cursor:'pointer' }} />
       )}
       <h2>
         <span style={{ color: 'red' }}>Welcome {getUser()?.username || 'Guest'}</span> to AntDashboard

@@ -2,11 +2,15 @@ import { useState } from 'react';
 import { Layout, Menu,  theme as antdTheme } from 'antd';
 import {
   DashboardOutlined,
+  LineChartOutlined,
+  BarChartOutlined,
   LogoutOutlined,
 } from '@ant-design/icons';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
-import Charts from '../components/Charts';
+import AnnualChart from '../components/AnnualChart';
+import SalesChart from '../components/SalesChart';
+import OverallPieChart from '../components/OverallPieChart';
 
 
 const { Sider, Content } = Layout;
@@ -14,7 +18,7 @@ const { Sider, Content } = Layout;
 
 
 const Dashboard = () => {
-  const { logout, getUser } = useAuth();
+  const { logout} = useAuth();
   const { theme } = useTheme();
   const { token } = antdTheme.useToken();
 
@@ -62,17 +66,12 @@ const Dashboard = () => {
           theme={theme} 
           style={{marginTop:'20px',backgroundColor: token.colorBgContainer}}
         >
-          <Menu.Item key="1" icon={<DashboardOutlined />}>
-            Overview
-          </Menu.Item>
-          <Menu.Item
-            key="3"
-            icon={<LogoutOutlined />}
-            onClick={logout}
-            style={{ color: 'red' }}
-          >
-            Logout
-          </Menu.Item>
+           <Menu.Item key="1" icon={<DashboardOutlined />}>Overview</Menu.Item>
+  <Menu.Item key="2" icon={<LineChartOutlined />}>Sales Analysis</Menu.Item>
+  <Menu.Item key="3" icon={<BarChartOutlined />}>User Trends</Menu.Item>
+  <Menu.Item key="4" icon={<LogoutOutlined />} onClick={logout} style={{ color: 'red' }}>
+    Logout
+  </Menu.Item>
         </Menu>
       </Sider>
 
@@ -88,10 +87,13 @@ const Dashboard = () => {
           }}
         >
           {selectedMenuKey === '1' && (
-            <Charts />
+            <OverallPieChart />
           )}
           {selectedMenuKey === '2' && (
-            <p>📈 This is the Stats section with charts.</p>
+            <SalesChart/>
+          )}
+          {selectedMenuKey === '3' && (
+            <AnnualChart />
           )}
         </Content>
       </Layout>

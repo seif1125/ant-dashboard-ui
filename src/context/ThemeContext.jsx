@@ -1,4 +1,4 @@
-import React, { useContext,useState ,useEffect} from 'react';
+import React, { useContext,useEffect} from 'react';
 export const ThemeContext = React.createContext();
 export const ThemeProvider = ({ children }) => {
     const storedTheme = localStorage.getItem('theme');
