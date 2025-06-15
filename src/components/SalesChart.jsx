@@ -6,9 +6,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
-
 
 const data = [
   { name: 'Jan', sales: 2400 },
@@ -16,22 +15,20 @@ const data = [
   { name: 'Mar', sales: 9800 },
   { name: 'Apr', sales: 3908 },
 ];
-  
+
 const SalesChart = () => (
-
-  <div>
-    <h2 >📈Users sales</h2>  
+  <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto', padding: '1rem' }}>
+    <h2 style={{ textAlign: 'center', fontSize: '1.5rem' }}>📈 Users Sales</h2>
     <ResponsiveContainer width="100%" height={300}>
-    <LineChart data={data}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Line type="monotone" dataKey="sales" stroke="#f00" strokeWidth={4} />
-    </LineChart>
-  </ResponsiveContainer>
+      <LineChart data={data}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Line type="monotone" dataKey="sales" stroke="#f00" strokeWidth={3} />
+      </LineChart>
+    </ResponsiveContainer>
   </div>
-
 );
 
 export default SalesChart;
