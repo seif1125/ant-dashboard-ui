@@ -8,8 +8,6 @@ import ThemedAntApp from './components/ThemedAntApp';
 
 
 
-
-
 // ✅ Only one ThemeProvider at the root
 function App() {
   return (
